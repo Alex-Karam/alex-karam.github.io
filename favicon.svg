@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Alexandros Karam — AK</title>
+  <rect width="64" height="64" rx="14" fill="#0072b2"/>
+  <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11 44 21 20 31 44 M15 35H27"/>
+    <path d="M37 20V44 M51 20 37 32 52 44"/>
+  </g>
+</svg>

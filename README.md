@@ -22,6 +22,8 @@ analysis or model results.
 - `index.html`: responsive homepage.
 - `styles.css`: shared responsive styles, with no external dependencies.
 - `portrait.png`: author's supplied portrait, at its original available resolution.
+- `favicon.svg` and `favicon.ico`: the blue AK browser-tab icon, in vector and
+  multi-size raster formats, shared by every page.
 - `projects/customer-activation/index.html`: case study with findings, methods,
   validation and limitations.
 - `projects/customer-activation/customer-activation-report.pdf`: unchanged,
