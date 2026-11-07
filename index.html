@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Alexandros Karam's data analytics portfolio: customer activation, small-business sales, historical backtest analysis and trade reconciliation.">
+  <meta name="description" content="Alexandros Karam's data analytics portfolio: three completed case studies in customer activation, business reporting and historical FX research, plus projects in development.">
   <meta name="theme-color" content="#0072B2">
   <title>Alexandros Karam | Data Analytics Portfolio</title>
-  <link rel="stylesheet" href="styles.css?v=20261107-3">
+  <link rel="stylesheet" href="styles.css?v=20261107-4">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -43,51 +43,49 @@
       </div>
       <section id="projects" aria-labelledby="projects-heading">
         <div class="section-head">
-          <div><p class="eyebrow">Selected work</p><h2 id="projects-heading">Questions, methods, evidence.</h2></div>
-          <p>Explore three case studies with completed Power BI reports. The options project remains in development, with its current status shown.</p>
+          <div><p class="eyebrow">Selected work</p><h2 id="projects-heading">Completed projects</h2></div>
+          <p>Three Power BI reports. Explore the questions, methods, findings and limitations in each case study.</p>
         </div>
-        <article class="featured" aria-labelledby="activation-title">
-          <div>
-            <span class="status">Analysis and report complete</span>
-            <h3 id="activation-title">Customer Activation<br>and Feature Adoption</h3>
-            <p>Exploring activation paths, conversion timing, signup cohorts and repeat activity through a MySQL reporting model and a three-page Power BI report.</p>
-            <p>A case study using 365 Data Science student observations under a fictional financial-services interpretation.</p>
-            <div class="tags" aria-label="Project tools and methods"><span class="tag">MySQL</span><span class="tag">Power BI / DAX</span><span class="tag">Cohort analysis</span></div>
-          </div>
-          <div class="study">
-            <div class="journey" aria-label="Illustrative customer journey">
-              <span class="journey-label">The analytical framework</span>
-              <div class="journey-step"><b aria-hidden="true">01</b> Account creation</div>
-              <div class="journey-step"><b aria-hidden="true">02</b> First funding activity</div>
-              <div class="journey-step"><b aria-hidden="true">03</b> Feature adoption</div>
-              <p class="journey-note">Fictional business labels applied to education data. The source does not contain actual financial-customer observations.</p>
-            </div>
-            <details>
-              <summary>Read the project outline</summary>
-              <ul>
-                <li>Compare conversion within 1, 7 and 30 days using populations with complete follow-up.</li>
-                <li>Describe waiting times using the mean, median, P90 and delay bands.</li>
-                <li>Reconcile SQL controls with report totals, cohort filters and empty-sample cases.</li>
-              </ul>
-            </details>
-            <div class="case-links"><a class="button" href="projects/customer-activation/index.html">Read the case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/customer-activation/customer-activation-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
-          </div>
-        </article>
-        <div class="project-list">
-          <article class="project-row" aria-labelledby="business-title">
-            <span class="project-number" aria-hidden="true">02</span>
-            <div><h3 id="business-title">Small Business Sales and Order Analytics</h3><p>Turning operational spreadsheets into a validated MySQL reporting model and a four-page Power BI report. Compare orders, recorded charges, sales channels, fulfilment and weekday demand using real aggregate results.</p><div class="case-links"><a class="button" href="projects/small-business-sales-and-order-analytics/index.html">Read the case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/small-business-sales-and-order-analytics/small-business-sales-and-order-analytics-report.pdf" target="_blank" rel="noopener">View report PDF</a></div></div>
-            <span class="status complete">Report complete</span>
+        <div class="completed-grid">
+          <article class="completed-card" aria-labelledby="activation-title">
+            <span class="status">Report complete</span>
+            <h3 id="activation-title">Customer Activation and Feature Adoption</h3>
+            <p class="card-description">Activation funnels, conversion timing, signup cohorts and repeat activity, built with MySQL and Power BI.</p>
+            <p class="card-context">Education data with a fictional financial-services interpretation.</p>
+            <div class="tags" aria-label="Customer Activation tools and methods"><span class="tag">MySQL</span><span class="tag">Power BI / DAX</span><span class="tag">Cohort analysis</span></div>
+            <p class="card-report">3-page Power BI report</p>
+            <div class="case-links"><a class="button" href="projects/customer-activation/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/customer-activation/customer-activation-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
           </article>
-          <article class="project-row" aria-labelledby="fx-title">
-            <span class="project-number" aria-hidden="true">03</span>
-            <div><h3 id="fx-title">FX Time Range Breakout — Backtest Analytics</h3><p>Investigating historical breakout configurations across 28 FX pairs through Python validation, MySQL analysis and a 14-page Power BI report. Includes JPY comparisons and a separate USDJPY exit-time study, with the limits of the historical evidence stated.</p><div class="case-links"><a class="button" href="projects/fx-time-range-breakout/index.html">Read the case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/fx-time-range-breakout/fx-time-range-breakout-report.pdf" target="_blank" rel="noopener">View report PDF</a></div></div>
-            <span class="status complete">Report v1 complete</span>
+          <article class="completed-card" aria-labelledby="business-title">
+            <span class="status">Report complete</span>
+            <h3 id="business-title">Small Business Sales and Order Analytics</h3>
+            <p class="card-description">Operational spreadsheets cleaned and modelled for reporting on orders, charges, sales channels, fulfilment and weekday demand.</p>
+            <p class="card-context">Real aggregate business results, published with the owner's permission.</p>
+            <div class="tags" aria-label="Small Business tools"><span class="tag">Power Query</span><span class="tag">MySQL</span><span class="tag">Power BI / DAX</span></div>
+            <p class="card-report">4-page Power BI report</p>
+            <div class="case-links"><a class="button" href="projects/small-business-sales-and-order-analytics/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/small-business-sales-and-order-analytics/small-business-sales-and-order-analytics-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
           </article>
-          <article class="project-row" aria-labelledby="options-title">
-            <span class="project-number" aria-hidden="true">04</span>
+          <article class="completed-card" aria-labelledby="fx-title">
+            <span class="status">Report complete</span>
+            <h3 id="fx-title">FX Time Range Breakout — Backtest Analytics</h3>
+            <p class="card-description">Historical breakout configurations across 28 currency pairs, with Python validation, MySQL analysis and a separate USDJPY exit-time study.</p>
+            <p class="card-context">Personal research using in-sample results, with their limitations stated.</p>
+            <div class="tags" aria-label="FX research tools"><span class="tag">Python / pandas</span><span class="tag">MySQL</span><span class="tag">Power BI / DAX</span></div>
+            <p class="card-report">14-page Power BI report · v1</p>
+            <div class="case-links"><a class="button" href="projects/fx-time-range-breakout/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/fx-time-range-breakout/fx-time-range-breakout-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
+          </article>
+        </div>
+      </section>
+      <section class="development" id="development" aria-labelledby="development-heading">
+        <h2 id="development-heading">In development</h2>
+        <div class="development-list">
+          <article class="development-row" aria-labelledby="options-title">
             <div><h3 id="options-title">Index Put Options — Risk and Trade Reconciliation</h3><p>Investigating simulated trade records, fees, cash flows, capital requirements and risk. The study separates source-export reconciliation from funded-account assumptions.</p></div>
             <span class="status">In progress</span>
+          </article>
+          <article class="development-row" aria-labelledby="credit-title">
+            <div><h3 id="credit-title">Credit Card Repayment Risk — Analysis and Explainable Prediction</h3><p>Project scope defined for repayment-pattern analysis, logistic regression, probability calibration and model evaluation using MySQL, Python and Power BI.</p></div>
+            <span class="status">Planning stage</span>
           </article>
         </div>
       </section>

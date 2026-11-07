@@ -6,7 +6,7 @@
   <meta name="description" content="A MySQL and Power BI case study of customer activation, fixed-window conversion, signup cohorts, waiting-time distributions and repeat activity.">
   <meta name="theme-color" content="#0072B2">
   <title>Customer Activation and Feature Adoption | Alexandros Karam</title>
-  <link rel="stylesheet" href="../../styles.css?v=20261107-3">
+  <link rel="stylesheet" href="../../styles.css?v=20261107-4">
 </head>
 <body class="case-page">
   <a class="skip" href="#main">Skip to content</a>
@@ -50,6 +50,13 @@
     <section class="case-section" id="method" aria-labelledby="method-title">
       <p class="eyebrow">Method and validation</p><h2 id="method-title">From event records to a checked report.</h2>
       <p>I ran and reviewed the SQL and Power BI steps, checked results against control totals, and built and tested the reporting model and visuals.</p>
+      <div class="journey case-journey" aria-label="Illustrative customer journey">
+        <span class="journey-label">The analytical framework</span>
+        <div class="journey-step"><b aria-hidden="true">01</b> Account creation</div>
+        <div class="journey-step"><b aria-hidden="true">02</b> First funding activity</div>
+        <div class="journey-step"><b aria-hidden="true">03</b> Feature adoption</div>
+        <p class="journey-note">Fictional business labels applied to education data. The source does not contain actual financial-customer observations.</p>
+      </div>
       <div class="method-grid">
         <div class="method-step"><h3>1. Model the customer journey</h3><p>Aggregate event tables before joining them into one row per registration. Preserve registrations without later events, using reporting views, LEFT JOINs and explicit missing values.</p></div>
         <div class="method-step"><h3>2. Define fair observation windows</h3><p>Measure conversion over elapsed days 0–N, requiring full follow-up from signup or first funding. Measure repeat activity on later distinct days 1–N.</p></div>

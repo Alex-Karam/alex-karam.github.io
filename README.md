@@ -2,8 +2,10 @@
 
 Source for the portfolio website at `alex-karam.github.io`.
 
-The page introduces the author, summarises four analytics projects and links to
-LinkedIn, GitHub, ORCID and INSPIRE-HEP. Project status is explicit. The Customer
+The page introduces the author, summarises five analytics projects and links to
+LinkedIn, GitHub, ORCID and INSPIRE-HEP. Three completed projects share equal
+prominence, with consistent report links and tools. A smaller In development
+section distinguishes work in progress from planning-stage work. The Customer
 Activation case-study page includes the completed report as a PDF and three
 static page previews. It uses course student observations under a fictional
 financial-services interpretation. Small Business Sales and Order Analytics
@@ -11,7 +13,9 @@ includes a completed four-page Power BI report using real aggregate results
 approved by the owner, with the business identity kept private. FX Time Range
 Breakout includes a completed 14-page historical research report, with the
 original 28-pair study and finer USDJPY comparison analysed separately. The
-options project remains in progress.
+options project remains in progress. Credit Card Repayment Risk is at the
+planning stage; its listing describes intended work rather than completed
+analysis or model results.
 
 ## Files
 
