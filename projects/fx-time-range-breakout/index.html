@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal FX research across 28 currency pairs: Python validation, MySQL analysis, local parameter consistency and a 14-page Power BI report of historical breakout configurations.">
+  <meta name="theme-color" content="#0072B2">
+  <title>FX Time Range Breakout — Backtest Analytics | Alexandros Karam</title>
+  <link rel="stylesheet" href="../../styles.css?v=20261107-3">
+</head>
+<body class="case-page fx-case">
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="monogram" aria-hidden="true">AK</span>Alexandros Karam</a>
+      <nav aria-label="Main navigation"><a class="about-nav" href="../../index.html#projects">All projects</a><a href="#report">Report</a><a href="../../index.html#contact">Contact</a></nav>
+    </div>
+  </header>
+  <main class="wrap case-main" id="main">
+    <section class="case-intro" aria-labelledby="case-title">
+      <a class="breadcrumb" href="../../index.html#projects">← Back to the portfolio</a>
+      <p class="eyebrow">Case study · Historical FX research</p>
+      <h1 id="case-title">FX Time Range Breakout<br>Backtest Analytics</h1>
+      <p class="case-deck">Do JPY-linked currency pairs show broader and more locally consistent historical breakout profitability than other pairs?</p>
+      <div class="case-meta"><span class="status">Report v1 complete</span><span>Python / pandas · MySQL · Power BI / DAX</span><span>Personal research project</span></div>
+      <div class="actions"><a class="button" href="fx-time-range-breakout-report.pdf" target="_blank" rel="noopener">View report PDF <span aria-hidden="true">↗</span></a><a class="text-link" href="#findings">Explore the findings</a></div>
+    </section>
+    <aside class="disclosure" aria-label="Study context">
+      <p><strong>Historical simulation research.</strong> Each observation is an alternative backtest configuration. Configurations overlap and currency pairs share currencies. Results describe the same historical sample; validation on unseen dates remains future work.</p>
+    </aside>
+    <nav aria-label="Case study sections"><ul class="case-jump"><li><a href="#findings">Findings</a></li><li><a href="#method">Method and checks</a></li><li><a href="#report">Report</a></li><li><a href="#limitations">Limitations</a></li></ul></nav>
+    <section class="case-metrics" aria-label="Study populations">
+      <article class="case-metric"><span class="value">28</span><h2>FX pairs in the original study</h2><p>Seven JPY-linked pairs and 21 non-JPY pairs. Group means give each pair equal weight.</p></article>
+      <article class="case-metric"><span class="value">286,832</span><h2>Eligible original configurations</h2><p>From 318,136 optimization rows across the original 30-minute grid and both breakout modes.</p></article>
+      <article class="case-metric"><span class="value">10,927</span><h2>Matched USDJPY settings</h2><p>A separate five-minute-grid comparison of exits at 17:00, 20:00 and 23:00 on the same history.</p></article>
+    </section>
+    <section class="case-section" id="findings" aria-labelledby="findings-title">
+      <p class="eyebrow">What the analysis shows</p><h2 id="findings-title">Broader historical coverage among JPY pairs.</h2>
+      <p>The original study finds a higher mean share of profitable configurations among JPY-linked pairs. The comparison gives each pair equal weight, and performance varies substantially between individual pairs.</p>
+      <div class="table-scroll" role="region" aria-label="JPY and non-JPY configuration coverage" tabindex="0">
+        <table><caption>Equal-weight means across seven JPY pairs and 21 non-JPY pairs. Coverage measures configurations, not the percentage of winning trades.</caption><thead><tr><th scope="col">Comparison</th><th scope="col">JPY</th><th scope="col">Non-JPY</th></tr></thead><tbody><tr><th scope="row">Profitable-setting share: original grid, both modes</th><td>54.15%</td><td>5.16%</td></tr><tr><th scope="row">Neighbourhood-supported share: two-signal mode</th><td>44.55%</td><td>1.95%</td></tr></tbody></table>
+      </div>
+      <p><strong>Neighbourhood support</strong> requires the setting and all six neighbours to be profitable. Each neighbour changes one timing input by ±30 minutes, holding the others fixed. This comparison uses 3,564 interior settings per pair. Excluding USDJPY and CADJPY leaves a JPY mean supported share of <strong>27.53%</strong>.</p>
+      <h3>USDJPY: compare the same settings across exit times.</h3>
+      <p>The additional USDJPY scans use five-minute range-start and duration steps in two-signal mode. Matching by start and duration produces a common set of 10,927 timing-valid settings across three exits. These scans are analysed separately from the original 28-pair dataset.</p>
+      <div class="table-scroll" role="region" aria-label="USDJPY exit-time medians" tabindex="0">
+        <table><caption>Medians across all matched settings, without filtering to profitable configurations. Profit is reported in EUR; R uses its raw scale.</caption><thead><tr><th scope="col">Exit</th><th scope="col">Profit</th><th scope="col">Recovery factor</th><th scope="col">Profit factor</th><th scope="col">Raw R</th></tr></thead><tbody><tr><th scope="row">17:00</th><td>€234.45</td><td>3.0364</td><td>1.1453</td><td>0.9449</td></tr><tr><th scope="row">20:00</th><td>€406.39</td><td>4.4153</td><td>1.1774</td><td>0.9594</td></tr><tr><th scope="row">23:00</th><td>€323.22</td><td>3.7358</td><td>1.1283</td><td>0.9660</td></tr></tbody></table>
+      </div>
+      <p>The 20:00 exit has the highest median profit, recovery factor and profit factor among these three exits; 23:00 has the highest median R. This is a comparison within the selected historical sample. Changing the exit also changes the entry cutoff and available entry opportunities.</p>
+      <figure class="report-figure">
+        <figcaption><h3>USDJPY profit across the three matched exits</h3><a href="usdjpy-exit-profit.png" target="_blank" rel="noopener">Open figure at full size <span aria-hidden="true">↗</span></a></figcaption>
+        <a href="usdjpy-exit-profit.png" target="_blank" rel="noopener"><img src="usdjpy-exit-profit.png" width="5422" height="1834" loading="lazy" decoding="async" alt="Three USDJPY profit heatmaps for exits at 17:00, 20:00 and 23:00. Range start is on the horizontal axis and duration on the vertical axis. Blue indicates profit and red indicates loss on one shared EUR scale. Grey settings are outside the common timing set."></a>
+      </figure>
+      <p class="case-note">The heatmaps display every second row and column of the five-minute grid, giving ten-minute display spacing. There is no averaging or interpolation. Statistics and colour limits use the full matched five-minute data; times follow the broker clock.</p>
+    </section>
+    <section class="case-section" id="method" aria-labelledby="method-title">
+      <p class="eyebrow">Method and validation</p><h2 id="method-title">From optimization exports to a checked report.</h2>
+      <p>I parsed and validated MT5 optimization XML exports in Python, reconciled the results in MySQL, explored parameter behaviour with pandas and visualizations, and assembled the findings in Power BI and DAX.</p>
+      <div class="method-grid">
+        <div class="method-step"><h3>1. Validate the original population</h3><p>Check row counts, settings and eligibility per pair. An eligible original configuration has at least 120 scheduled minutes between range end and exit, and at least one trade.</p></div>
+        <div class="method-step"><h3>2. Preserve the comparison definitions</h3><p>Reconcile Python and MySQL controls, separate the original and finer studies, and distinguish all-eligible coverage from summaries conditional on profitable configurations.</p></div>
+        <div class="method-step"><h3>3. Inspect local consistency</h3><p>Compare pair groups and neighbouring timing settings. For the fine USDJPY extension, join scans by range start and duration rather than optimization pass ID, and use shared colour scales.</p></div>
+        <div class="method-step"><h3>4. Build the reporting output</h3><p>Combine MySQL reporting, CSV snapshots and Python figures in a 14-page Power BI report. Check the exported tables, figures and captions against the saved analysis.</p></div>
+      </div>
+      <h3>Metrics with explicit meanings.</h3>
+      <ul><li><strong>Profit factor:</strong> gross winning profits divided by absolute gross losing losses.</li><li><strong>Recovery factor:</strong> net profit divided by monetary maximum balance drawdown.</li><li><strong>Custom R:</strong> Pearson correlation between trade number and cumulative net profit normalized per lot. It describes historical path linearity. Fisher z(R) is used for visual contrast in selected report maps; numerical summaries use raw R.</li></ul>
+      <p class="case-note"><strong>Study settings:</strong> date inputs 1 May 2018–31 August 2026; CapitalPointTrading-MT5-4 server; 1-minute OHLC modelling; EUR account basis. Scheduled times use broker time. Excel inspection was part of the work.</p>
+    </section>
+    <section class="case-section" id="report" aria-labelledby="report-title">
+      <div class="report-head"><div><p class="eyebrow">The reporting output</p><h2 id="report-title">A 14-page Power BI report.</h2><p>Report v1 combines the original 28-pair study and a separately labelled USDJPY extension. Open the complete PDF or jump to a section below.</p></div><a class="text-link" href="fx-time-range-breakout-report.pdf" download="fx-time-range-breakout-report.pdf">Download the PDF</a></div>
+      <div class="method-grid">
+        <div class="method-step"><h3>01–03 · Scope and validation</h3><p>Research question, experiment settings, metric definitions and original data controls.</p><a class="text-link" href="fx-time-range-breakout-report.pdf#page=1" target="_blank" rel="noopener">Open at page 1 <span aria-hidden="true">↗</span></a></div>
+        <div class="method-step"><h3>04–07 · Pair and group comparisons</h3><p>Pair overview, JPY comparison, currency groups and neighbourhood support.</p><a class="text-link" href="fx-time-range-breakout-report.pdf#page=4" target="_blank" rel="noopener">Open at page 4 <span aria-hidden="true">↗</span></a></div>
+        <div class="method-step"><h3>08–11 · USDJPY parameter maps</h3><p>Full valid 23:00 fine-grid maps for profit, recovery factor, profit factor and R.</p><a class="text-link" href="fx-time-range-breakout-report.pdf#page=8" target="_blank" rel="noopener">Open at page 8 <span aria-hidden="true">↗</span></a></div>
+        <div class="method-step"><h3>12–14 · Exit comparison and conclusions</h3><p>Common-set fine-grid comparisons, the four-metric summary, findings and future work.</p><a class="text-link" href="fx-time-range-breakout-report.pdf#page=12" target="_blank" rel="noopener">Open at page 12 <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+    <section class="case-section" id="limitations" aria-labelledby="limitations-title">
+      <p class="eyebrow">Scope and interpretation</p><h2 id="limitations-title">An exploratory result with further validation ahead.</h2>
+      <ul><li><strong>Configurations overlap.</strong> They are alternative settings tested over the same history, with shared currencies across pairs. Their profits cannot be added into a portfolio total.</li><li><strong>Regions were selected after inspecting the history.</strong> The finer scans revisit that sample. A frozen shortlist and genuinely unseen-date testing remain future work.</li><li><strong>Simulation and trading conditions matter.</strong> The study uses 1-minute OHLC modelling on one broker’s data. Real-tick and another-broker checks remain outstanding. Changing account currency can alter monetary and ratio-based results.</li><li><strong>Timing has limits.</strong> A fixed UTC offset for the broker clock has not been established, and exact inclusion of the configured end date has not been independently verified.</li><li><strong>Reproduction is not exact.</strong> A matched coarse/fine 23:00 audit found small metric differences, including 74 profits differing by up to €0.02. Their cause is unresolved.</li></ul>
+      <p>Further work includes freezing selection rules, checking unseen dates and alternative trading conditions, and exploring additional exits, stop-loss/take-profit settings and account currency.</p>
+      <div class="case-bottom"><a class="button" href="fx-time-range-breakout-report.pdf" target="_blank" rel="noopener">View report PDF <span aria-hidden="true">↗</span></a><a class="text-link" href="../../index.html#projects">Back to all projects</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer"><span>Alexandros Karam · Data analytics portfolio</span><a href="https://www.linkedin.com/in/alexandros-karam-09565b25/">Connect on LinkedIn</a></div></footer>
+</body>
+</html>

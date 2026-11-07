@@ -8,8 +8,10 @@ Activation case-study page includes the completed report as a PDF and three
 static page previews. It uses course student observations under a fictional
 financial-services interpretation. Small Business Sales and Order Analytics
 includes a completed four-page Power BI report using real aggregate results
-approved by the owner, with the business identity kept private. The FX and
-options projects remain in progress.
+approved by the owner, with the business identity kept private. FX Time Range
+Breakout includes a completed 14-page historical research report, with the
+original 28-pair study and finer USDJPY comparison analysed separately. The
+options project remains in progress.
 
 ## Files
 
@@ -26,6 +28,12 @@ options projects remain in progress.
   with findings, methods, report links and limitations.
 - `projects/small-business-sales-and-order-analytics/small-business-sales-and-order-analytics-report.pdf`:
   unchanged four-page Power BI export, published with the owner's permission.
+- `projects/fx-time-range-breakout/index.html`: historical research case study
+  with findings, methodology, metric definitions and limitations.
+- `projects/fx-time-range-breakout/fx-time-range-breakout-report.pdf`: unchanged
+  14-page Power BI report v1.
+- `projects/fx-time-range-breakout/usdjpy-exit-profit.png`: selected original
+  Python figure comparing three exits on a common timing set.
 
 ## GitHub Pages setup
 
