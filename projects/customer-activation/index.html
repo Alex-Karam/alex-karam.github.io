@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A guided MySQL and Power BI case study of customer activation, fixed-window conversion, signup cohorts, waiting-time distributions and repeat activity.">
+  <meta name="description" content="A MySQL and Power BI case study of customer activation, fixed-window conversion, signup cohorts, waiting-time distributions and repeat activity.">
   <meta name="theme-color" content="#0072B2">
   <title>Customer Activation and Feature Adoption | Alexandros Karam</title>
-  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../styles.css?v=20261107-2">
 </head>
 <body class="case-page">
   <a class="skip" href="#main">Skip to content</a>
@@ -22,7 +22,7 @@
       <p class="eyebrow">Case study · Customer analytics</p>
       <h1 id="case-title">Customer Activation<br>and Feature Adoption</h1>
       <p class="case-deck">How many registered users activate, how quickly do they convert, and how do signup cohorts compare when they have equal time to act?</p>
-      <div class="case-meta"><span class="status">Analysis and report complete</span><span>MySQL · Power BI / DAX</span><span>Guided portfolio project</span></div>
+      <div class="case-meta"><span class="status">Analysis and report complete</span><span>MySQL · Power BI / DAX</span><span>Portfolio project</span></div>
       <div class="actions"><a class="button" href="customer-activation-report.pdf" target="_blank" rel="noopener">View report PDF <span aria-hidden="true">↗</span></a><a class="text-link" href="#findings">Explore the findings</a></div>
     </section>
     <aside class="disclosure" aria-label="Data provenance">
@@ -48,8 +48,8 @@
       <p>Interest adoption across all registrations is 6.78%. For the sequential funding-to-Interest journey, the rate is <strong>2,055 / 20,255 = 10.15%</strong>, after excluding 523 funded users whose first Interest event preceded funding. The funnel's eligible-funded stage is this denominator adjustment.</p>
     </section>
     <section class="case-section" id="method" aria-labelledby="method-title">
-      <p class="eyebrow">Work completed in a guided workflow</p><h2 id="method-title">From event records to a checked report.</h2>
-      <p>I ran and reviewed the SQL and Power BI steps, checked results against control totals, and built and tested the reporting model and visuals with step-by-step guidance.</p>
+      <p class="eyebrow">Method and validation</p><h2 id="method-title">From event records to a checked report.</h2>
+      <p>I ran and reviewed the SQL and Power BI steps, checked results against control totals, and built and tested the reporting model and visuals.</p>
       <div class="method-grid">
         <div class="method-step"><h3>1. Model the customer journey</h3><p>Aggregate event tables before joining them into one row per registration. Preserve registrations without later events, using reporting views, LEFT JOINs and explicit missing values.</p></div>
         <div class="method-step"><h3>2. Define fair observation windows</h3><p>Measure conversion over elapsed days 0–N, requiring full follow-up from signup or first funding. Measure repeat activity on later distinct days 1–N.</p></div>
@@ -66,7 +66,7 @@
     </section>
     <section class="case-section" id="limitations" aria-labelledby="limits-title">
       <p class="eyebrow">Interpretation and scope</p><h2 id="limits-title">What these results can support.</h2>
-      <ul><li><strong>The context is an exercise assumption.</strong> Financial meanings, universal feature eligibility and tracking completeness through 30 October 2022 are assumed.</li><li><strong>Dates have no intraday ordering.</strong> Zero days means events occurred on the same date. Delay summaries describe observed converters only.</li><li><strong>Repeat activity measures another activity day.</strong> It does not measure retained balances or subscription churn. The dataset has no amounts, currencies, balances or acquisition channels.</li><li><strong>The comparisons are descriptive.</strong> There is no intervention or exposure data with which to attribute cohort differences to a product change.</li><li><strong>Reproduction has limits.</strong> Refresh was checked on the existing local setup; a fresh-machine source restore was not tested. DAX documentation was transcribed from the guided workflow rather than exported directly from the PBIX.</li></ul>
+      <ul><li><strong>The context is an exercise assumption.</strong> Financial meanings, universal feature eligibility and tracking completeness through 30 October 2022 are assumed.</li><li><strong>Dates have no intraday ordering.</strong> Zero days means events occurred on the same date. Delay summaries describe observed converters only.</li><li><strong>Repeat activity measures another activity day.</strong> It does not measure retained balances or subscription churn. The dataset has no amounts, currencies, balances or acquisition channels.</li><li><strong>The comparisons are descriptive.</strong> There is no intervention or exposure data with which to attribute cohort differences to a product change.</li><li><strong>Reproduction has limits.</strong> Refresh was checked on the existing local setup; a fresh-machine source restore was not tested. DAX documentation was transcribed from the project workflow rather than exported directly from the PBIX.</li></ul>
       <p>A possible follow-up is to test whether reducing early signup friction improves conversion. That would require suitable intervention and exposure data and is outside this study.</p>
       <div class="case-bottom"><a class="button" href="customer-activation-report.pdf" target="_blank" rel="noopener">View report PDF <span aria-hidden="true">↗</span></a><a class="text-link" href="../../index.html#projects">Back to all projects</a></div>
     </section>

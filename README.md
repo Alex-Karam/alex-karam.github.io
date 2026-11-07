@@ -6,7 +6,10 @@ The page introduces the author, summarises four analytics projects and links to
 LinkedIn, GitHub, ORCID and INSPIRE-HEP. Project status is explicit. The Customer
 Activation case-study page includes the completed report as a PDF and three
 static page previews. It uses course student observations under a fictional
-financial-services interpretation. Three other projects remain in progress.
+financial-services interpretation. Small Business Sales and Order Analytics
+includes a completed four-page Power BI report using real aggregate results
+approved by the owner, with the business identity kept private. The FX and
+options projects remain in progress.
 
 ## Files
 
@@ -19,6 +22,10 @@ financial-services interpretation. Three other projects remain in progress.
   three-page Power BI export supplied by the author.
 - Three PNG previews in the same project folder, unchanged from the reviewed
   report renders.
+- `projects/small-business-sales-and-order-analytics/index.html`: case study
+  with findings, methods, report links and limitations.
+- `projects/small-business-sales-and-order-analytics/small-business-sales-and-order-analytics-report.pdf`:
+  unchanged four-page Power BI export, published with the owner's permission.
 
 ## GitHub Pages setup
 
