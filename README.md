@@ -1,21 +1,19 @@
 # Alexandros Karam — Data Analytics Portfolio
 
-Source for the portfolio website at `alex-karam.github.io`.
+Source for the [portfolio website](https://alex-karam.github.io/).
 
-The page introduces the author, summarises five analytics projects and links to
-LinkedIn, GitHub, ORCID and INSPIRE-HEP. Three completed projects share equal
-prominence, with consistent report links and tools. A smaller In development
-section distinguishes work in progress from planning-stage work. The Customer
-Activation case-study page includes the completed report as a PDF and three
-static page previews. It uses course student observations under a fictional
-financial-services interpretation. Small Business Sales and Order Analytics
-includes a completed four-page Power BI report using real aggregate results
-approved by the owner, with the business identity kept private. FX Time Range
-Breakout includes a completed 14-page historical research report, with the
-original 28-pair study and finer USDJPY comparison analysed separately. The
-options project remains in progress. Credit Card Repayment Risk is at the
-planning stage; its listing describes intended work rather than completed
-analysis or model results.
+The homepage presents four completed analytics projects with case studies and Power BI
+reports. Each case study links to its technical repository. Index Put Options remains
+in development.
+
+- [Customer Activation and Feature Adoption](https://alex-karam.github.io/projects/customer-activation/index.html)
+  uses course student observations under a fictional financial-services interpretation.
+- [Small Business Sales and Order Analytics](https://alex-karam.github.io/projects/small-business-sales-and-order-analytics/index.html)
+  uses real aggregate results approved for publication by the owner.
+- [FX Time Range Breakout](https://alex-karam.github.io/projects/fx-time-range-breakout/index.html)
+  covers the historical 28-pair study and the separate USDJPY comparison.
+- [Credit Card Repayment Risk](https://alex-karam.github.io/projects/credit-card-repayment-risk/index.html)
+  uses the same historical 2005 Taiwanese cohort for training, validation and held-out model evaluation.
 
 ## Files
 
@@ -36,10 +34,14 @@ analysis or model results.
   unchanged four-page Power BI export, published with the owner's permission.
 - `projects/fx-time-range-breakout/index.html`: historical research case study
   with findings, methodology, metric definitions and limitations.
-- `projects/fx-time-range-breakout/fx-time-range-breakout-report.pdf`: unchanged
-  14-page Power BI report v1.
+- `projects/fx-time-range-breakout/fx-time-range-breakout-report.pdf` contains the
+  14-page Power BI report with the updated validation table and chart labels.
 - `projects/fx-time-range-breakout/usdjpy-exit-profit.png`: selected original
   Python figure comparing three exits on a common timing set.
+- `projects/credit-card-repayment-risk/index.html` covers the historical cohort, model
+  evaluation and hypothetical review queue.
+- `projects/credit-card-repayment-risk/credit-card-repayment-risk-report.pdf` contains
+  the two-page Power BI report.
 
 ## GitHub Pages setup
 
