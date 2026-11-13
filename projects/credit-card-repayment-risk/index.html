@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A historical credit card repayment risk study using MySQL, Python, Power BI and Excel, with held-out model evaluation and a hypothetical review queue.">
+  <meta name="theme-color" content="#0072B2">
+  <link rel="icon" href="../../favicon.ico?v=20261107" type="image/x-icon">
+  <link rel="icon" href="../../favicon.svg?v=20261107" type="image/svg+xml" sizes="any">
+  <title>Credit Card Repayment Risk | Alexandros Karam</title>
+  <link rel="stylesheet" href="../../styles.css?v=20261107-4">
+</head>
+<body class="case-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="monogram" aria-hidden="true">AK</span>Alexandros Karam</a>
+      <nav aria-label="Main navigation">
+        <a class="about-nav" href="../../index.html#projects">All projects</a>
+        <a href="#report">Report</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap case-main" id="main">
+    <section class="case-intro" aria-labelledby="case-title">
+      <a class="breadcrumb" href="../../index.html#projects">← Back to the portfolio</a>
+      <h1 id="case-title">Credit Card Repayment Risk</h1>
+      <p class="case-deck">How well can past repayment behaviour rank clients by next-month default risk, and how many observed defaults could an analyst find with a fixed review budget?</p>
+      <div class="case-meta"><span>MySQL · Python · Power BI · Excel</span><span>Guided portfolio study</span></div>
+      <div class="actions">
+        <a class="button" href="credit-card-repayment-risk-report.pdf" target="_blank" rel="noopener">View report PDF <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://github.com/Alex-Karam/credit-card-repayment-risk" target="_blank" rel="noopener">View SQL and notebooks <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <aside class="disclosure" aria-label="Data source and scope">
+      <p><strong>Historical cohort from Taiwan.</strong> The dataset covers 30,000 credit-card clients with repayment history from April to September 2005. Training, validation and test clients all come from this cohort. Performance on later periods or other populations remains unverified. <a href="https://doi.org/10.24432/C55S3H">Source and attribution (I-Cheng Yeh, UCI)</a></p>
+    </aside>
+    <section class="case-metrics" aria-label="Held-out model results">
+      <article class="case-metric"><span class="value">0.7719</span><h2>Test ROC AUC</h2><p>Logistic regression versus 0.5000 for the constant-probability baseline on 6,000 held-out clients.</p></article>
+      <article class="case-metric"><span class="value">50.72%</span><h2>Defaults captured</h2><p>The hypothetical top-20% queue captured 673 of 1,327 observed test defaults.</p></article>
+      <article class="case-metric"><span class="value">1,200</span><h2>Clients reviewed in the simulation</h2><p>The queue ranked all 6,000 test clients by model score and included the highest-scored fifth.</p></article>
+    </section>
+    <section class="case-section" aria-labelledby="method-title">
+      <h2 id="method-title">Repayment patterns and model evaluation</h2>
+      <p>In the training set, the observed next-month default rate rose from <strong>11.44%</strong> for clients with zero documented delay months to <strong>69.86%</strong> for clients with six. MySQL reshaped the repayment history and generated client-level predictors for local analysis. An Excel PivotTable reproduced the training default rate of <strong>22.12%</strong> from the SQL summary.</p>
+      <p>In Python, I fitted preprocessing and logistic regression on 18,000 training clients, used 6,000 validation clients to set a review cutoff, and evaluated the frozen model on 6,000 test clients. The report shows both ranking performance and how closely predicted probabilities matched observed default rates.</p>
+      <p>The fixed-capacity review queue measures how many observed defaults appeared among the highest-ranked clients. It does not estimate defaults prevented or financial savings.</p>
+    </section>
+    <section class="case-section" id="report" aria-labelledby="report-title">
+      <h2 id="report-title">Two-page Power BI report</h2>
+      <p>Page 1 shows training-set repayment patterns. Page 2 shows the held-out model metrics, calibration and review-queue results.</p>
+      <div class="actions">
+        <a class="button" href="credit-card-repayment-risk-report.pdf" target="_blank" rel="noopener">Open the report PDF <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://github.com/Alex-Karam/credit-card-repayment-risk" target="_blank" rel="noopener">View reproduction instructions <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap footer"><span>Alexandros Karam · Data analytics portfolio</span><a href="#main">Back to top ↑</a></div></footer>
+</body>
+</html>

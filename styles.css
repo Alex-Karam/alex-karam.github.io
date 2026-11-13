@@ -40,7 +40,7 @@
     h2 { margin:0; font-size:36px; line-height:1.2; font-weight:650; letter-spacing:-.03em; }
     .section-head p:last-child { margin:0; max-width:375px; font-size:15px; color:var(--muted); }
     #projects { padding-bottom:36px; }
-    .completed-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:stretch; }
+    .completed-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:stretch; }
     .completed-card { display:flex; flex-direction:column; min-width:0; padding:26px; background:var(--soft-blue); border:1px solid #cfdfeb; border-radius:12px; }
     .status { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:650; color:#224a60; }
     .status::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--blue); flex-shrink:0; }
