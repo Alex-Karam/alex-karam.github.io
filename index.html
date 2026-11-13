@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Alexandros Karam's data analytics portfolio: four completed case studies in customer activation, business reporting, historical FX research and credit risk, plus projects in development.">
-  <meta name="theme-color" content="#0072B2">
+  <meta name="color-scheme" content="light dark">
   <link rel="icon" href="favicon.ico?v=20261107" type="image/x-icon">
   <link rel="icon" href="favicon.svg?v=20261107" type="image/svg+xml" sizes="any">
   <title>Alexandros Karam | Data Analytics Portfolio</title>
-  <link rel="stylesheet" href="styles.css?v=20261113-credit">
+  <script src="theme.js?v=1"></script>
+  <link rel="stylesheet" href="styles.css?v=theme-1">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -20,6 +21,14 @@
         <a class="about-nav" href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
+      <label class="theme-picker" hidden>
+        <span>Theme</span>
+        <select id="portfolio-theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
     </div>
   </header>
   <main id="main">
