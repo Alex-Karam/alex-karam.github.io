@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A replay of three A/B test stopping rules on 37 eligible historical ASOS comparisons.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="../../favicon.ico?v=20261107" type="image/x-icon">
+  <link rel="icon" href="../../favicon.svg?v=20261107" type="image/svg+xml" sizes="any">
+  <title>ASOS Decision Timing | Alexandros Karam</title>
+  <script src="../../theme.js?v=1"></script>
+  <link rel="stylesheet" href="../../styles.css?v=theme-1">
+</head>
+<body class="case-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="monogram" aria-hidden="true">AK</span>Alexandros Karam</a>
+      <nav aria-label="Main navigation"><a class="about-nav" href="../../index.html#projects">All projects</a><a href="#report">Report</a><a href="../../index.html#contact">Contact</a></nav>
+      <label class="theme-picker" hidden>
+        <span>Theme</span>
+        <select id="portfolio-theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <main class="wrap case-main" id="main">
+    <section class="case-intro" aria-labelledby="case-title">
+      <a class="breadcrumb" href="../../index.html#projects">← Back to the portfolio</a>
+      <h1 id="case-title">ASOS Decision Timing</h1>
+      <p class="case-deck">How did checking an A/B test while it was running change when a decision was reached and which comparisons stayed inconclusive?</p>
+      <div class="case-meta"><span>Python / Jupyter · Power BI</span></div>
+      <div class="actions">
+        <a class="button" href="asos-decision-timing-report.pdf" target="_blank" rel="noopener">View report PDF <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://github.com/Alex-Karam/asos-decision-timing">View notebook and technical README</a>
+        <a class="text-link" href="../cookie-cats-ab-test/index.html">Related case study · Cookie Cats A/B Test</a>
+      </div>
+    </section>
+    <aside class="disclosure" aria-label="Data source and scope">
+      <p>I replayed three decision rules on 37 eligible historical comparisons from the <a href="https://doi.org/10.17605/OSF.IO/64JSB">ASOS Digital Experiments Dataset</a>. The response metric is anonymized. I used the final recorded checkpoint as a reference because the true effects are unknown.</p>
+    </aside>
+    <nav aria-label="Case study sections">
+      <ul class="case-jump">
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#method">Method and limitations</a></li>
+        <li><a href="#application">Proposed experiment</a></li>
+        <li><a href="#report">Report</a></li>
+      </ul>
+    </nav>
+    <section class="case-section" id="findings" aria-labelledby="findings-title">
+      <h2 id="findings-title">Earlier decisions and inconclusive results</h2>
+      <figure class="report-figure">
+        <img src="asos_decision_timing.png" width="1620" height="612" alt="Of 37 comparisons per rule, final only decided 14 at the final readout and left 23 inconclusive. Repeated 5% decided 15 early and 3 at final, with 19 inconclusive. Bonferroni decided 10 early, with 27 inconclusive.">
+        <figcaption>Each bar covers the same 37 eligible comparisons.</figcaption>
+      </figure>
+      <p><strong>Repeated 5% testing</strong> reached 15 early decisions, a median of 25 days before the final checkpoint among those decisions. Four of the 15 were inconclusive at the final readout.</p>
+      <p><strong>Bonferroni-adjusted testing</strong> reached 10 early decisions, a median of 24.25 days before the final checkpoint among those decisions. It stayed inconclusive in four comparisons where the final-only rule reached a decision.</p>
+      <p>Across all 37 comparisons, 23 were inconclusive under final-only testing, 19 under repeated 5% testing and 27 under Bonferroni.</p>
+    </section>
+    <section class="case-section" id="method" aria-labelledby="method-title">
+      <h2 id="method-title">Method and limitations</h2>
+      <p>I selected single-treatment experiments with a usable final checkpoint and at least one usable interim checkpoint on day 7, 14 or 21. Each look used a two-sided pooled test of proportions. The final-only rule tested once at 5%. The two monitoring rules stopped at the first significant result, using either 5% or a Bonferroni-adjusted 1.25% per look for four reserved looks.</p>
+      <p>Repeated testing at 5% gives each comparison several chances to cross the threshold. Bonferroni bounds the chance of a false positive across the scheduled looks when the individual tests are valid. The replay measures timing and agreement with the final reference. The accuracy of each rule remains unknown.</p>
+    </section>
+    <section class="case-section" id="application" aria-labelledby="application-title">
+      <h2 id="application-title">Proposed experiment · Driver onboarding</h2>
+      <p>In a hypothetical driver-onboarding test, measure the share of assigned applicants who complete their first trip within seven days. Set the schedule and thresholds before enrolment. At each look, count only applicants whose full seven-day follow-up window has closed, including those who never finish onboarding or take a trip. Wait until the last enrolled applicant has had seven full days before the final readout.</p>
+    </section>
+    <section class="case-section" id="report" aria-labelledby="report-title">
+      <div class="report-head">
+        <div><h2 id="report-title">One-page Power BI report</h2><p>The report summarises the three rules and their decision counts.</p></div>
+        <a class="text-link" href="asos-decision-timing-report.pdf" download>Download the PDF</a>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap footer"><span>Alexandros Karam · Data analytics portfolio</span><a href="#main">Back to top ↑</a></div></footer>
+</body>
+</html>
