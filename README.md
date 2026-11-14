@@ -2,7 +2,7 @@
 
 Source for the [portfolio website](https://alex-karam.github.io/).
 
-The homepage presents four completed analytics projects with case studies and Power BI
+The homepage presents five completed analytics projects with case studies and Power BI
 reports. Each case study links to its technical repository. Index Put Options remains
 in development.
 
@@ -14,6 +14,9 @@ in development.
   covers the historical 28-pair study and the separate USDJPY comparison.
 - [Credit Card Repayment Risk](https://alex-karam.github.io/projects/credit-card-repayment-risk/index.html)
   uses the same historical 2005 Taiwanese cohort for training, validation and held-out model evaluation.
+
+- [Cookie Cats A/B Test](https://alex-karam.github.io/projects/cookie-cats-ab-test/index.html)
+  compares day-7 retention at level-30 and level-40 progression gates.
 
 ## Files
 
@@ -42,6 +45,9 @@ in development.
   evaluation and hypothetical review queue.
 - `projects/credit-card-repayment-risk/credit-card-repayment-risk-report.pdf` contains
   the two-page Power BI report.
+
+- `projects/cookie-cats-ab-test/index.html` covers the retention results, allocation check and recommendation.
+- `projects/cookie-cats-ab-test/cookie-cats-ab-test-report.pdf` contains the reviewed one-page Power BI report.
 
 ## GitHub Pages setup
 

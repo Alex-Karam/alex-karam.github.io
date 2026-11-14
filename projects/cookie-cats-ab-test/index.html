@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An A/B test case study on how moving the first Cookie Cats progression gate from level 30 to level 40 affected day-7 retention.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="../../favicon.ico?v=20261107" type="image/x-icon">
+  <link rel="icon" href="../../favicon.svg?v=20261107" type="image/svg+xml" sizes="any">
+  <title>Cookie Cats A/B Test | Alexandros Karam</title>
+  <script src="../../theme.js?v=1"></script>
+  <link rel="stylesheet" href="../../styles.css?v=theme-1">
+</head>
+<body class="case-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="monogram" aria-hidden="true">AK</span>Alexandros Karam</a>
+      <nav aria-label="Main navigation">
+        <a class="about-nav" href="../../index.html#projects">All projects</a>
+        <a href="#report">Report</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+      <label class="theme-picker" hidden>
+        <span>Theme</span>
+        <select id="portfolio-theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <main class="wrap case-main" id="main">
+    <section class="case-intro" aria-labelledby="case-title">
+      <a class="breadcrumb" href="../../index.html#projects">← Back to the portfolio</a>
+      <h1 id="case-title">Cookie Cats A/B Test</h1>
+      <p class="case-deck">Did moving the first progression gate from level 30 to level 40 change how many players returned on day 7?</p>
+      <div class="case-meta"><span>MySQL · Python / Jupyter · Power BI</span></div>
+      <div class="actions">
+        <a class="button" href="cookie-cats-ab-test-report.pdf" target="_blank" rel="noopener">View report PDF <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://github.com/Alex-Karam/cookie-cats-ab-test" target="_blank" rel="noopener">View SQL and notebook <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <aside class="disclosure" aria-label="Data source and scope">
+      <p>The <a href="https://www.kaggle.com/datasets/mursideyarkin/mobile-games-ab-testing-cookie-cats">public Cookie Cats dataset</a>, shared by Mürşide Yarkın, contains 90,189 players. Retention uses all players assigned to each group as the denominator, including those who may never have reached the gate.</p>
+    </aside>
+    <nav aria-label="Case study sections">
+      <ul class="case-jump">
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#method">Method and checks</a></li>
+        <li><a href="#limitations">Limitations</a></li>
+        <li><a href="#report">Report</a></li>
+      </ul>
+    </nav>
+    <section class="case-metrics" aria-label="Primary day-7 retention results">
+      <article class="case-metric"><span class="value">19.02%</span><h2>Level 30 · day 7</h2><p>8,502 of 44,700 assigned players returned on day 7.</p></article>
+      <article class="case-metric"><span class="value">18.20%</span><h2>Level 40 · day 7</h2><p>8,279 of 45,489 assigned players returned on day 7.</p></article>
+      <article class="case-metric"><span class="value">−0.82 pp</span><h2>Level 40 minus level 30</h2><p>95% confidence interval from −1.33 to −0.31 percentage points.</p></article>
+    </section>
+    <section class="case-section" id="findings" aria-labelledby="findings-title">
+      <h2 id="findings-title">Keep the level-30 gate for now</h2>
+      <p>The observed day-7 difference is about eight fewer returners per 1,000 assigned players at level 40. Before revisiting the rollout, verify the planned allocation and confirm that all players had complete day-7 follow-up.</p>
+      <p>Day-1 retention provides supporting context. It was 44.82% at level 30 and 44.23% at level 40.</p>
+    </section>
+    <section class="case-section" id="method" aria-labelledby="method-title">
+      <h2 id="method-title">Method and validation</h2>
+      <div class="method-grid">
+        <div class="method-step"><h3>Check assignments and outcomes</h3><p>MySQL staging checks found 90,189 distinct player IDs and zero invalid IDs, assignment labels or retention flags.</p></div>
+        <div class="method-step"><h3>Estimate the retention difference</h3><p>Python reproduced the SQL counts and estimated a 95% confidence interval for the difference between two independent proportions.</p></div>
+      </div>
+      <p class="case-note">The Power BI report calculates day-7 retention from the same two-row aggregate, dividing returners by assigned players for each group.</p>
+    </section>
+    <section class="case-section" id="limitations" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Allocation and follow-up checks</h2>
+      <p>The observed split was 49.56% at level 30 and 50.44% at level 40. A Pearson chi-square check gave <strong>p = 0.0086</strong> under a hypothetical independent 50:50 assignment. The planned ratio remains unverified.</p>
+      <p>Assignment logs and follow-up metadata were unavailable, so the cause of the split and completeness of day-7 coverage remain unknown. Gate exposure was also unavailable, so the estimate applies to assigned groups.</p>
+    </section>
+    <section class="case-section" id="report" aria-labelledby="report-title">
+      <div class="report-head">
+        <div><h2 id="report-title">One-page Power BI report</h2><p>Compare day-7 retention across both assigned groups.</p></div>
+        <a class="text-link" href="cookie-cats-ab-test-report.pdf" download>Download the PDF</a>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap footer"><span>Alexandros Karam · Data analytics portfolio</span><a href="#main">Back to top ↑</a></div></footer>
+</body>
+</html>
