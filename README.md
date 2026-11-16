@@ -2,9 +2,8 @@
 
 Source for the [portfolio website](https://alex-karam.github.io/).
 
-The homepage presents eight completed analytics projects with case studies and Power BI
-reports. Each case study links to its technical repository. Index Put Options remains
-in development.
+The homepage presents nine completed analytics projects with case studies and Power BI
+reports. Eight of the case studies link to technical repositories.
 
 - [Customer Activation and Feature Adoption](https://alex-karam.github.io/projects/customer-activation/index.html)
   uses course student observations under a fictional financial-services interpretation.
@@ -26,6 +25,9 @@ in development.
 
 - [AML Transaction Review](https://alex-karam.github.io/projects/aml-transaction-review/index.html)
   compares three rankings at a fixed daily review capacity on IBM synthetic data.
+
+- [QQQ Options Backtest Reconciliation and Risk Analysis](https://alex-karam.github.io/projects/qqq-options-backtest-reconciliation/index.html)
+  covers simulated QQQ trade reconciliation, settlement exceptions and historical risk sensitivity.
 
 ## Files
 
@@ -68,6 +70,9 @@ in development.
 
 - `projects/aml-transaction-review/index.html` covers the time split, ranking decisions, held-out results and limitations.
 - `projects/aml-transaction-review/aml-transaction-review-report.pdf` contains the reviewed one-page Power BI report.
+
+- `projects/qqq-options-backtest-reconciliation/index.html` covers the trade, order and settlement reconciliation.
+- `projects/qqq-options-backtest-reconciliation/qqq-options-backtest-reconciliation-report.pdf` contains the final three-page Power BI report.
 
 ## GitHub Pages setup
 

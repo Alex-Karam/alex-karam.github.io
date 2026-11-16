@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A short case study on reconciling simulated QQQ option trades and examining historical execution and risk sensitivity using MySQL, Python and Power BI.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="../../favicon.ico?v=20261107" type="image/x-icon">
+  <link rel="icon" href="../../favicon.svg?v=20261107" type="image/svg+xml" sizes="any">
+  <title>QQQ Options Backtest Reconciliation and Risk Analysis | Alexandros Karam</title>
+  <script src="../../theme.js?v=1"></script>
+  <link rel="stylesheet" href="../../styles.css?v=theme-1">
+</head>
+<body class="case-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="monogram" aria-hidden="true">AK</span>Alexandros Karam</a>
+      <nav aria-label="Main navigation">
+        <a class="about-nav" href="../../index.html#projects">All projects</a>
+        <a href="#report">Report</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+      <label class="theme-picker" hidden>
+        <span>Theme</span>
+        <select id="portfolio-theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <main class="wrap case-main" id="main">
+    <section class="case-intro" aria-labelledby="case-title">
+      <a class="breadcrumb" href="../../index.html#projects">← Back to the portfolio</a>
+      <p class="eyebrow">Case study · Trade reconciliation and risk</p>
+      <h1 id="case-title">QQQ Options Backtest Reconciliation and Risk Analysis</h1>
+      <p class="case-deck">Can the leg cash flows and fees in a simulated QQQ spread be traced through to the reported trade and settlement results?</p>
+      <div class="case-meta"><span>MySQL · Python · Power BI</span></div>
+      <div class="actions">
+        <a class="button" href="qqq-options-backtest-reconciliation-report.pdf" target="_blank" rel="noopener">View report PDF <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <aside class="disclosure" aria-label="Data provenance">
+      <p><strong>Historical simulation.</strong> The reconciliation uses a QQQ put credit spread pilot. The Power BI report compares separate backtest runs from May 2018 through August 2026.</p>
+    </aside>
+    <section class="case-metrics" aria-label="Reconciliation results">
+      <article class="case-metric"><span class="value">415</span><h2>Closed trades reconciled</h2><p>Fees and net profit and loss matched the reported values.</p></article>
+      <article class="case-metric"><span class="value">830</span><h2>Orders tied to leg cash flows</h2><p>Each order matched the gross cash flow of its legs before fees.</p></article>
+      <article class="case-metric"><span class="value">101</span><h2>Months cross-checked</h2><p>An independent Python calculation reproduced the SQL results from the same trade export.</p></article>
+    </section>
+    <section class="case-section" id="findings" aria-labelledby="findings-title">
+      <h2 id="findings-title">Settlements and open exceptions</h2>
+      <p>I joined simulated trade, order and leg records in MySQL, reconciled the cash flows and fees, and cross-checked the monthly results in Python. For the settlement audit, I compared cumulative cash and reported profit and loss on dates with zero open trades.</p>
+      <p>The audit identified seven differences on those dates. On one date, reported cumulative profit and loss changed with zero recorded transactions. I traced each difference to its source row and recorded it as an open exception.</p>
+    </section>
+    <section class="case-section" id="report" aria-labelledby="report-title">
+      <div class="report-head">
+        <div><h2 id="report-title">Three-page Power BI report</h2><p>The report compares historical returns and drawdown under different funding assumptions, then tests sensitivity to fill costs, days in trade and short-put delta.</p></div>
+        <a class="text-link" href="qqq-options-backtest-reconciliation-report.pdf" download>Download the report PDF ↓</a>
+      </div>
+      <p>Each report comparison uses the Friday entry dates shared by the configurations it tests. The simulation uses tastytrade backtest fills, fees and daily marks. The QQQ benchmark uses Yahoo Finance dividend-adjusted closes.</p>
+      <p>The wider balance budgets increased simulated spread returns and drawdown in the midpoint scenarios. The fill-cost table shows how quickly the comparison changes as execution costs rise. Fill capacity at the largest simulated contract sizes remains unverified.</p>
+      <div class="case-bottom"><a class="text-link" href="../../index.html#projects">Back to all projects</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer"><span>Alexandros Karam · Data analytics portfolio</span><a href="https://www.linkedin.com/in/alexandros-karam-09565b25/">Connect on LinkedIn</a></div></footer>
+</body>
+</html>
