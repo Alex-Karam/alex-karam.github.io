@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A study of three AML transaction rankings on IBM synthetic data at a fixed review capacity, using MySQL, Python and Power BI.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="../../favicon.ico?v=20261107" type="image/x-icon">
+  <link rel="icon" href="../../favicon.svg?v=20261107" type="image/svg+xml" sizes="any">
+  <title>AML Transaction Review | Alexandros Karam</title>
+  <script src="../../theme.js?v=1"></script>
+  <link rel="stylesheet" href="../../styles.css?v=theme-1">
+</head>
+<body class="case-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="monogram" aria-hidden="true">AK</span>Alexandros Karam</a>
+      <nav aria-label="Main navigation">
+        <a class="about-nav" href="../../index.html#projects">All projects</a>
+        <a href="#report">Report</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+      <label class="theme-picker" hidden>
+        <span>Theme</span>
+        <select id="portfolio-theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <main class="wrap case-main" id="main">
+    <section class="case-intro" aria-labelledby="case-title">
+      <a class="breadcrumb" href="../../index.html#projects">← Back to the portfolio</a>
+      <p class="eyebrow">Case study · AML analytics</p>
+      <h1 id="case-title">AML Transaction Review</h1>
+      <p class="case-deck">Does prior account activity help a simulated analyst find more transactions labelled as laundering at the same review capacity?</p>
+      <div class="case-meta"><span>MySQL · Python / Jupyter · Power BI</span></div>
+      <div class="actions">
+        <a class="button" href="aml-transaction-review-report.pdf" target="_blank" rel="noopener">View report PDF <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://github.com/Alex-Karam/aml-transaction-review" target="_blank" rel="noopener">View technical repository <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <aside class="disclosure" aria-label="Data provenance">
+      <p><strong>Synthetic transactions and simulator labels.</strong> This anti-money laundering (AML) study uses <code>HI-Small_Trans.csv</code> from version 8 of IBM Research’s synthetic dataset. The held-out test covers 9–10 September 2022.</p>
+    </aside>
+    <nav aria-label="Case study sections">
+      <ul class="case-jump">
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#method">Method and checks</a></li>
+        <li><a href="#report">Power BI report</a></li>
+        <li><a href="#limitations">Limitations</a></li>
+      </ul>
+    </nav>
+    <section class="case-metrics" aria-label="Test window and selected results">
+      <article class="case-metric">
+        <span class="value">862,792</span>
+        <h2>Held-out transactions</h2>
+        <p>The simulator labelled 956 as laundering.</p>
+      </article>
+      <article class="case-metric">
+        <span class="value">500</span>
+        <h2>Reviews per ranking per day</h2>
+        <p>Each ranking used 1,000 review slots across the two test days.</p>
+      </article>
+      <article class="case-metric">
+        <span class="value">53</span>
+        <h2>Labelled transactions caught by the tree</h2>
+        <p>The depth-4 decision tree used the amount and history features.</p>
+      </article>
+    </section>
+    <section class="case-section" id="findings" aria-labelledby="findings-title">
+      <h2 id="findings-title">Three rankings at the same review capacity</h2>
+      <p>Each ranking built a separate queue from the same eligible transactions each day. A capture is a reviewed transaction with simulator label 1. Labelled transactions outside the queue count as misses, and reviewed transactions with label 0 count as false positives.</p>
+      <div class="table-scroll" role="region" aria-label="Held-out review results by ranking" tabindex="0">
+        <table>
+          <caption>Results for 9–10 September 2022</caption>
+          <thead><tr><th scope="col">Ranking</th><th scope="col">Reviewed</th><th scope="col">Caught</th><th scope="col">Missed</th><th scope="col">False positives</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Amount only</th><td>1,000</td><td>7</td><td>949</td><td>993</td></tr>
+            <tr><th scope="row">Amount + history</th><td>1,000</td><td>1</td><td>955</td><td>999</td></tr>
+            <tr><th scope="row">Decision tree</th><td>1,000</td><td>53</td><td>903</td><td>947</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The weighted history rule caught six fewer labelled transactions than amount alone. The trained tree caught 46 more than amount alone at the same capacity.</p>
+    </section>
+    <section class="case-section" id="method" aria-labelledby="method-title">
+      <h2 id="method-title">Method and validation</h2>
+      <div class="method-grid">
+        <div class="method-step">
+          <h3>Build transaction history in MySQL</h3>
+          <p>Identify each sender by bank and account ID. Count outgoing transactions recorded in the 24 hours before the current timestamp. Transactions recorded in the same minute share the same cutoff.</p>
+        </div>
+        <div class="method-step">
+          <h3>Train and validate by date</h3>
+          <p>Use 2–6 September for training and 7–8 September for validation. The first ranking uses the paid-amount percentile within currency. The second gives that percentile 75% weight and the sender-history percentile 25%. The tree learns from both percentiles, which use the training window as their reference.</p>
+        </div>
+        <div class="method-step">
+          <h3>Freeze the rankings before testing</h3>
+          <p>Save the fitted rankings, daily budget and tie rule before accessing the 9–10 September test labels. Rank by score each day, then break ties by timestamp and source row ID.</p>
+        </div>
+        <div class="method-step">
+          <h3>Reconcile the results</h3>
+          <p>Check that the test IDs are unique and separate from development. For every ranking, catches plus misses reconcile to 956, and catches plus false positives reconcile to 1,000. Power BI totals match the notebook for both test days.</p>
+        </div>
+      </div>
+      <p>Two simulated analyst notes trace transactions with the same tree score and different simulator labels. They show how the two features and the timestamp tie rule affected selection. <a href="https://github.com/Alex-Karam/aml-transaction-review/blob/main/docs/case_notes.md">Read the analyst case notes</a></p>
+    </section>
+    <section class="case-section" id="report" aria-labelledby="report-title">
+      <div class="report-head">
+        <div><h2 id="report-title">One-page Power BI report</h2><p>The bar chart compares catches. The table shows reviewed, caught, missed and false-positive counts by ranking. The reviewed export shows both test days with the date filter set to All.</p></div>
+        <a class="text-link" href="https://github.com/Alex-Karam/aml-transaction-review/blob/main/outputs/AML%20Transaction%20Review.pdf" target="_blank" rel="noopener">Report PDF on GitHub ↗</a>
+      </div>
+    </section>
+    <section class="case-section" id="limitations" aria-labelledby="limits-title">
+      <h2 id="limits-title">Limitations and sources</h2>
+      <p>The results apply to two held-out days from one synthetic release at one review capacity. History covers the sender’s outgoing activity over a 24-hour window. The gain belongs to the full trained tree ranking. The independent contribution of history within the tree remains unmeasured.</p>
+      <p>IBM Research published the synthetic data through Erik Altman’s Kaggle listing, which records the Community Data License Agreement, Sharing, Version 1.0. The file used here is <code>HI-Small_Trans.csv</code> from version 8. <a href="https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laundering-aml">Dataset and attribution</a> · <a href="https://www.kaggle.com/api/v1/datasets/download/ealtman2019/ibm-transactions-for-anti-money-laundering-aml/HI-Small_Trans.csv?datasetVersionNumber=8">Version 8 CSV</a></p>
+      <p>Erik Altman, Jovan Blanuša, Luc von Niederhäusern, Béni Egressy, Andreea Anghel and Kubilay Atasu describe the generator in <cite>Realistic Synthetic Financial Transactions for Anti-Money Laundering Models</cite>. <a href="https://arxiv.org/abs/2306.16424v3">Read the paper</a></p>
+      <p>I ran the SQL and notebook, checked the results and built the Power BI report. Codex assisted with the project design, code drafting, validation checks and documentation.</p>
+      <div class="case-bottom"><a class="text-link" href="../../index.html#projects">Back to all projects</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer"><span>Alexandros Karam · Data analytics portfolio</span><a href="https://www.linkedin.com/in/alexandros-karam-09565b25/">Connect on LinkedIn</a></div></footer>
+</body>
+</html>

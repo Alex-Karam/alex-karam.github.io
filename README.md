@@ -2,7 +2,7 @@
 
 Source for the [portfolio website](https://alex-karam.github.io/).
 
-The homepage presents seven completed analytics projects with case studies and Power BI
+The homepage presents eight completed analytics projects with case studies and Power BI
 reports. Each case study links to its technical repository. Index Put Options remains
 in development.
 
@@ -23,6 +23,9 @@ in development.
 
 - [KYC Review and Capacity Planning](https://alex-karam.github.io/projects/kyc-review-capacity-planning/index.html)
   builds a fictional customer follow-up queue and simulates analyst staffing during a surge.
+
+- [AML Transaction Review](https://alex-karam.github.io/projects/aml-transaction-review/index.html)
+  compares three rankings at a fixed daily review capacity on IBM synthetic data.
 
 ## Files
 
@@ -62,6 +65,9 @@ in development.
 - The KYC case study is at `projects/kyc-review-capacity-planning/index.html`.
 - The reviewed two-page PDF is at `projects/kyc-review-capacity-planning/kyc-review-capacity-planning-report.pdf`.
 - The KYC project folder includes the reviewed `cdd-follow-up-queue.png` and `capacity-planning.png` report previews.
+
+- `projects/aml-transaction-review/index.html` covers the time split, ranking decisions, held-out results and limitations.
+- `projects/aml-transaction-review/aml-transaction-review-report.pdf` contains the reviewed one-page Power BI report.
 
 ## GitHub Pages setup
 
