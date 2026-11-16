@@ -43,16 +43,16 @@
       </div>
     </section>
     <aside class="disclosure" aria-label="Data provenance">
-      <p><strong>Historical simulation.</strong> The reconciliation uses a QQQ put credit spread pilot. The Power BI report compares separate backtest runs from May 2018 through August 2026.</p>
+      <p><strong>Historical simulation.</strong> The reconciliation uses a QQQ put credit spread pilot, including one trade that closed in September 2026. The Power BI report compares separate backtest runs from May 2018 through August 2026.</p>
     </aside>
-    <section class="case-metrics" aria-label="Reconciliation results">
+    <section class="case-metrics" aria-label="Reconciliation and report window">
       <article class="case-metric"><span class="value">415</span><h2>Closed trades reconciled</h2><p>Fees and net profit and loss matched the reported values.</p></article>
       <article class="case-metric"><span class="value">830</span><h2>Orders tied to leg cash flows</h2><p>Each order matched the gross cash flow of its legs before fees.</p></article>
-      <article class="case-metric"><span class="value">101</span><h2>Months cross-checked</h2><p>An independent Python calculation reproduced the SQL results from the same trade export.</p></article>
+      <article class="case-metric"><span class="value">100</span><h2>Months in the report window</h2><p>May 2018 through August 2026.</p></article>
     </section>
     <section class="case-section" id="findings" aria-labelledby="findings-title">
       <h2 id="findings-title">Settlements and open exceptions</h2>
-      <p>I joined simulated trade, order and leg records in MySQL, reconciled the cash flows and fees, and cross-checked the monthly results in Python. For the settlement audit, I compared cumulative cash and reported profit and loss on dates with zero open trades.</p>
+      <p>I joined simulated trade, order and leg records in MySQL, reconciled the cash flows and fees, and independently reproduced the SQL close-month totals in Python using the same pilot trade export. For the settlement audit, I compared cumulative cash and reported profit and loss on dates with zero open trades.</p>
       <p>The audit identified seven differences on those dates. On one date, reported cumulative profit and loss changed with zero recorded transactions. I traced each difference to its source row and recorded it as an open exception.</p>
     </section>
     <section class="case-section" id="report" aria-labelledby="report-title">
