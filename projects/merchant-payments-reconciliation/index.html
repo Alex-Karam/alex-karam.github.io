@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A synthetic EUR merchant payments case study that reconciles ledger events, processor payouts and bank postings at two UTC cutoffs.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="../../favicon.ico?v=20261107" type="image/x-icon">
+  <link rel="icon" href="../../favicon.svg?v=20261107" type="image/svg+xml" sizes="any">
+  <title>Merchant Payments Reconciliation | Alexandros Karam</title>
+  <script src="../../theme.js?v=1"></script>
+  <link rel="stylesheet" href="../../styles.css?v=theme-1">
+</head>
+<body class="case-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="monogram" aria-hidden="true">AK</span>Alexandros Karam</a>
+      <nav aria-label="Main navigation">
+        <a class="about-nav" href="../../index.html#projects">All projects</a>
+        <a href="#report">Report</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+      <label class="theme-picker" hidden>
+        <span>Theme</span>
+        <select id="portfolio-theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <main class="wrap case-main" id="main">
+    <section class="case-intro" aria-labelledby="case-title">
+      <a class="breadcrumb" href="../../index.html#projects">&#8592; Back to the portfolio</a>
+      <p class="eyebrow">Case study &middot; Payments reconciliation</p>
+      <h1 id="case-title">Merchant Payments Reconciliation</h1>
+      <p class="case-deck">Which processor payouts had reached the bank at each reporting cutoff, and which differences still needed investigation?</p>
+      <div class="case-meta"><span>MySQL &middot; Python / Jupyter &middot; dbt &middot; Power BI</span></div>
+      <div class="actions">
+        <a class="button" href="merchant-payments-reconciliation-report.pdf" target="_blank" rel="noopener">View report PDF <span aria-hidden="true">&#8599;</span></a>
+        <a class="text-link" href="https://github.com/Alex-Karam/merchant-payments-reconciliation" target="_blank" rel="noopener">View technical repository <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </section>
+    <aside class="disclosure" aria-label="Data provenance">
+      <p><strong>Entirely synthetic EUR data.</strong> The Python notebook generates and audits six merchant ledger events, six raw processor rows and three bank deposits.</p>
+    </aside>
+    <nav aria-label="Case study sections">
+      <ul class="case-jump">
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#method">Method and checks</a></li>
+        <li><a href="#report">Power BI report</a></li>
+        <li><a href="#scope">Scope and attribution</a></li>
+      </ul>
+    </nav>
+    <section class="case-section" id="findings" aria-labelledby="findings-title">
+      <h2 id="findings-title">What had reached the bank at each cutoff?</h2>
+      <div class="table-scroll" role="region" aria-label="Reconciliation results by UTC cutoff" tabindex="0">
+        <table>
+          <caption>Payout and exception totals for the synthetic EUR fixture</caption>
+          <thead>
+            <tr><th scope="col">Cutoff (UTC)</th><th scope="col">Processor net</th><th scope="col">Bank posted</th><th scope="col">Awaiting deposit</th><th scope="col">Payouts reconciled</th><th scope="col">Open exceptions</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><time datetime="2026-06-30">30 June 2026</time></th><td>&euro;422.00</td><td>&euro;159.00</td><td>&euro;263.00</td><td>1 of 3</td><td>5</td></tr>
+            <tr><th scope="row"><time datetime="2026-07-02">2 July 2026</time></th><td>&euro;422.00</td><td>&euro;422.00</td><td>&euro;0.00</td><td>3 of 3</td><td>4</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>On 30 June, the &euro;117.00 payout was one day overdue and the &euro;146.00 payout was in transit. The &euro;146.00 payout posted on 1 July as expected. The &euro;117.00 payout posted on 2 July, three calendar days after its expected arrival, clearing the overdue payout exception.</p>
+      <p>The same four ledger and processor exceptions remained open at both cutoffs, covering a duplicate item, a fee difference, a missing processor record and a refund amount difference.</p>
+    </section>
+    <section class="case-section" id="method" aria-labelledby="method-title">
+      <h2 id="method-title">Method and validation</h2>
+      <div class="method-grid">
+        <div class="method-step">
+          <h3>Tie ledger events to processor items</h3>
+          <p>Match merchant events by ID in MySQL. Retain one copy of duplicate item <code>bt_002</code> in the payout calculation and sum five canonical processor items into three payouts.</p>
+        </div>
+        <div class="method-step">
+          <h3>Apply the reporting cutoff</h3>
+          <p>Match eligible bank postings by payout reference and currency through each inclusive UTC cutoff. Compare amounts in integer cents and use expected arrival dates to classify payouts still awaiting deposit.</p>
+        </div>
+        <div class="method-step">
+          <h3>Validate bank totals and exceptions</h3>
+          <p>The reporting query tied deposits linked to payouts to an independent bank total with a zero-cent difference at both cutoffs. All 42 dbt tests passed on the MySQL reconciliation sources, including checks for exact bank matches and expected exception rows.</p>
+        </div>
+        <div class="method-step">
+          <h3>Trace the results in Power BI</h3>
+          <p>A shared UTC cutoff slicer filters the payout and exception tables. Exceptions retain source identifiers and CSV line numbers, and both report exports match their SQL totals.</p>
+        </div>
+      </div>
+    </section>
+    <section class="case-section" id="report" aria-labelledby="report-title">
+      <div class="report-head">
+        <div><h2 id="report-title">Two-page Power BI report</h2><p>The first page shows the 30 June cutoff and the second shows 2 July. Each page includes a payout chart, a bank reconciliation table and the exceptions still open at that cutoff.</p></div>
+        <a class="text-link" href="https://github.com/Alex-Karam/merchant-payments-reconciliation/blob/main/output/pdf/Merchant%20Payments%20Reconciliation%20-%20Power%20BI%20Report.pdf" target="_blank" rel="noopener">Report PDF on GitHub <span aria-hidden="true">&#8599;</span></a>
+      </div>
+      <p><a class="text-link" href="merchant-payments-reconciliation-report.pdf" download>Download the report PDF <span aria-hidden="true">&#8595;</span></a></p>
+    </section>
+    <section class="case-section" id="scope" aria-labelledby="scope-title">
+      <h2 id="scope-title">Scope and attribution</h2>
+      <p>The results describe three synthetic EUR payouts over two reporting cutoffs.</p>
+      <p>OpenAI Codex supported implementation guidance and review.</p>
+      <div class="case-bottom"><a class="text-link" href="../../index.html#projects">Back to all projects</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer"><span>Alexandros Karam · Data analytics portfolio</span><a href="https://www.linkedin.com/in/alexandros-karam-09565b25/">Connect on LinkedIn</a></div></footer>
+</body>
+</html>
