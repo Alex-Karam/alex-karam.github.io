@@ -2,7 +2,7 @@
 
 Source for the [portfolio website](https://alex-karam.github.io/).
 
-The homepage presents ten completed analytics projects with case studies and Power BI
+The homepage presents eleven completed analytics projects with case studies and Power BI
 reports.
 
 - [Customer Activation and Feature Adoption](https://alex-karam.github.io/projects/customer-activation/index.html)
@@ -13,6 +13,9 @@ reports.
   covers the historical 28-pair study and the separate USDJPY comparison.
 - [Credit Card Repayment Risk](https://alex-karam.github.io/projects/credit-card-repayment-risk/index.html)
   uses the same historical 2005 Taiwanese cohort for training, validation and held-out model evaluation.
+
+- [Early Mortgage Payoff in Fixed-Rate FHA Loans](https://alex-karam.github.io/projects/early-mortgage-payoff-fha/index.html)
+  compares note-rate and rate-gap forecasts and reviews two historical payoff cohorts.
 
 - [Cookie Cats A/B Test](https://alex-karam.github.io/projects/cookie-cats-ab-test/index.html)
   compares day-7 retention at level-30 and level-40 progression gates.
@@ -79,6 +82,9 @@ reports.
 
 - `projects/merchant-payments-reconciliation/index.html` covers payout matching, cutoff results and exception tracing.
 - `projects/merchant-payments-reconciliation/merchant-payments-reconciliation-report.pdf` contains the reviewed Power BI exports in cutoff order.
+
+- `projects/early-mortgage-payoff-fha/index.html` covers the forecast comparison, historical pilots and limitations.
+- `projects/early-mortgage-payoff-fha/early-mortgage-payoff-fha-report.pdf` contains the reviewed two-page Power BI report.
 
 ## GitHub Pages setup
 
