@@ -58,14 +58,41 @@
           <p>Eleven Power BI reports. Explore the questions, methods, findings and limitations in each case study.</p>
         </div>
         <div class="completed-grid">
-          <article class="completed-card" aria-labelledby="activation-title">
+          <article class="completed-card" aria-labelledby="merchant-payments-title">
             <span class="status">Report complete</span>
-            <h3 id="activation-title">Customer Activation and Feature Adoption</h3>
-            <p class="card-description">Activation funnels, conversion timing, signup cohorts and repeat activity, built with MySQL and Power BI.</p>
-            <p class="card-context">Education data with a fictional financial-services interpretation.</p>
-            <div class="tags" aria-label="Customer Activation tools and methods"><span class="tag">MySQL</span><span class="tag">Power BI / DAX</span><span class="tag">Cohort analysis</span></div>
-            <p class="card-report">3-page Power BI report</p>
-            <div class="case-links"><a class="button" href="projects/customer-activation/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/customer-activation/customer-activation-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
+            <h3 id="merchant-payments-title">Merchant Payments Reconciliation</h3>
+            <p class="card-description">Matched synthetic EUR payouts across merchant ledger, processor and bank records at two reporting cutoffs.</p>
+            <p class="card-context">One of three payouts had reached the bank on 30 June. All three matched by 2 July, with four ledger and processor exceptions still open.</p>
+            <div class="tags" aria-label="Merchant payments reconciliation tools"><span class="tag">MySQL</span><span class="tag">Python / Jupyter</span><span class="tag">dbt</span><span class="tag">Power BI</span></div>
+            <p class="card-report">2-page Power BI report</p>
+            <div class="case-links"><a class="button" href="projects/merchant-payments-reconciliation/index.html">Read case study <span aria-hidden="true">&#8594;</span></a><a class="text-link" href="projects/merchant-payments-reconciliation/merchant-payments-reconciliation-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
+          </article>
+          <article class="completed-card" aria-labelledby="fha-payoff-title">
+            <span class="status">Report complete</span>
+            <h3 id="fha-payoff-title">Early Mortgage Payoff in Fixed-Rate FHA Loans</h3>
+            <p class="card-description">Compared six-month payoff forecasts using the note rate and its gap to Freddie Mac&rsquo;s benchmark for fixed-rate FHA purchase loans.</p>
+            <p class="card-context">Across 669,879 loan-cohort forecasts, the rate-gap model had a 0.58% lower Brier score.</p>
+            <div class="tags" aria-label="Mortgage payoff forecasting tools"><span class="tag">MySQL</span><span class="tag">Python / Jupyter</span><span class="tag">Power BI</span></div>
+            <p class="card-report">2-page Power BI report</p>
+            <div class="case-links"><a class="button" href="projects/early-mortgage-payoff-fha/index.html">Read case study <span aria-hidden="true">&#8594;</span></a><a class="text-link" href="projects/early-mortgage-payoff-fha/early-mortgage-payoff-fha-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
+          </article>
+          <article class="completed-card" aria-labelledby="aml-title">
+            <span class="status">Report complete</span>
+            <h3 id="aml-title">AML Transaction Review</h3>
+            <p class="card-description">Compared three transaction rankings at a fixed analyst review capacity. A shallow decision tree caught 53 labelled transactions across two test days.</p>
+            <p class="card-context">IBM synthetic data with rankings frozen before test labels were accessed.</p>
+            <div class="tags" aria-label="AML transaction review tools"><span class="tag">MySQL</span><span class="tag">Python / Jupyter</span><span class="tag">Power BI</span></div>
+            <p class="card-report">1-page Power BI report</p>
+            <div class="case-links"><a class="button" href="projects/aml-transaction-review/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/aml-transaction-review/aml-transaction-review-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
+          </article>
+          <article class="completed-card" aria-labelledby="kyc-title">
+            <span class="status">Report complete</span>
+            <h3 id="kyc-title">KYC Review and Capacity Planning</h3>
+            <p class="card-description">Built a customer follow-up queue and simulated how temporary analyst cover affects backlog and on-time completion.</p>
+            <p class="card-context">Fictional customer files, workloads and review policies.</p>
+            <div class="tags" aria-label="KYC review and capacity planning tools"><span class="tag">MySQL</span><span class="tag">Python / Jupyter</span><span class="tag">Power BI / DAX</span></div>
+            <p class="card-report">2-page Power BI report</p>
+            <div class="case-links"><a class="button" href="projects/kyc-review-capacity-planning/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/kyc-review-capacity-planning/kyc-review-capacity-planning-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
           </article>
           <article class="completed-card" aria-labelledby="business-title">
             <span class="status">Report complete</span>
@@ -76,15 +103,6 @@
             <p class="card-report">4-page Power BI report</p>
             <div class="case-links"><a class="button" href="projects/small-business-sales-and-order-analytics/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/small-business-sales-and-order-analytics/small-business-sales-and-order-analytics-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
           </article>
-          <article class="completed-card" aria-labelledby="fx-title">
-            <span class="status">Report complete</span>
-            <h3 id="fx-title">FX Time Range Breakout — Backtest Analytics</h3>
-            <p class="card-description">Historical breakout configurations across 28 currency pairs, with Python validation, MySQL analysis and a separate USDJPY exit-time study.</p>
-            <p class="card-context">Personal research using in-sample results, with their limitations stated.</p>
-            <div class="tags" aria-label="FX research tools"><span class="tag">Python / pandas</span><span class="tag">MySQL</span><span class="tag">Power BI / DAX</span></div>
-            <p class="card-report">14-page Power BI report · v1</p>
-            <div class="case-links"><a class="button" href="projects/fx-time-range-breakout/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/fx-time-range-breakout/fx-time-range-breakout-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
-          </article>
           <article class="completed-card" aria-labelledby="credit-title">
             <span class="status">Report complete</span>
             <h3 id="credit-title">Credit Card Repayment Risk</h3>
@@ -94,14 +112,32 @@
             <p class="card-report">2-page Power BI report</p>
             <div class="case-links"><a class="button" href="projects/credit-card-repayment-risk/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/credit-card-repayment-risk/credit-card-repayment-risk-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
           </article>
-          <article class="completed-card" aria-labelledby="fha-payoff-title">
+          <article class="completed-card" aria-labelledby="fx-title">
             <span class="status">Report complete</span>
-            <h3 id="fha-payoff-title">Early Mortgage Payoff in Fixed-Rate FHA Loans</h3>
-            <p class="card-description">Compared six-month payoff forecasts using the note rate and its gap to Freddie Mac&rsquo;s benchmark for fixed-rate FHA purchase loans.</p>
-            <p class="card-context">Across 669,879 loan-cohort forecasts, the rate-gap model had a 0.58% lower Brier score.</p>
-            <div class="tags" aria-label="Mortgage payoff forecasting tools"><span class="tag">MySQL</span><span class="tag">Python / Jupyter</span><span class="tag">Power BI</span></div>
-            <p class="card-report">2-page Power BI report</p>
-            <div class="case-links"><a class="button" href="projects/early-mortgage-payoff-fha/index.html">Read case study <span aria-hidden="true">&#8594;</span></a><a class="text-link" href="projects/early-mortgage-payoff-fha/early-mortgage-payoff-fha-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
+            <h3 id="fx-title">FX Time Range Breakout — Backtest Analytics</h3>
+            <p class="card-description">Historical breakout configurations across 28 currency pairs, with Python validation, MySQL analysis and a separate USDJPY exit-time study.</p>
+            <p class="card-context">Personal research using in-sample results, with their limitations stated.</p>
+            <div class="tags" aria-label="FX research tools"><span class="tag">Python / pandas</span><span class="tag">MySQL</span><span class="tag">Power BI / DAX</span></div>
+            <p class="card-report">14-page Power BI report · v1</p>
+            <div class="case-links"><a class="button" href="projects/fx-time-range-breakout/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/fx-time-range-breakout/fx-time-range-breakout-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
+          </article>
+          <article class="completed-card" aria-labelledby="qqq-title">
+            <span class="status">Report complete</span>
+            <h3 id="qqq-title">QQQ Options Backtest Reconciliation and Risk Analysis</h3>
+            <p class="card-description">Reconciled fees and net P&amp;L for 415 simulated QQQ trades and tied 830 orders to gross leg cash flows. An independent Python check reproduced the pilot’s monthly SQL results.</p>
+            <p class="card-context">The report covers a 100-month backtest. The pilot reconciliation logged seven open settlement exceptions.</p>
+            <div class="tags" aria-label="QQQ options reconciliation tools"><span class="tag">MySQL</span><span class="tag">Python</span><span class="tag">Power BI</span></div>
+            <p class="card-report">3-page Power BI report</p>
+            <div class="case-links"><a class="button" href="projects/qqq-options-backtest-reconciliation/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/qqq-options-backtest-reconciliation/qqq-options-backtest-reconciliation-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
+          </article>
+          <article class="completed-card" aria-labelledby="activation-title">
+            <span class="status">Report complete</span>
+            <h3 id="activation-title">Customer Activation and Feature Adoption</h3>
+            <p class="card-description">Activation funnels, conversion timing, signup cohorts and repeat activity, built with MySQL and Power BI.</p>
+            <p class="card-context">Education data with a fictional financial-services interpretation.</p>
+            <div class="tags" aria-label="Customer Activation tools and methods"><span class="tag">MySQL</span><span class="tag">Power BI / DAX</span><span class="tag">Cohort analysis</span></div>
+            <p class="card-report">3-page Power BI report</p>
+            <div class="case-links"><a class="button" href="projects/customer-activation/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/customer-activation/customer-activation-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
           </article>
           <article class="completed-card" aria-labelledby="cookie-cats-title">
             <span class="status">Report complete</span>
@@ -120,42 +156,6 @@
             <div class="tags" aria-label="ASOS tools and methods"><span class="tag">Python / Jupyter</span><span class="tag">Power BI</span><span class="tag">A/B testing</span></div>
             <p class="card-report">1-page Power BI report</p>
             <div class="case-links"><a class="button" href="projects/asos-decision-timing/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/asos-decision-timing/asos-decision-timing-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
-          </article>
-          <article class="completed-card" aria-labelledby="kyc-title">
-            <span class="status">Report complete</span>
-            <h3 id="kyc-title">KYC Review and Capacity Planning</h3>
-            <p class="card-description">Built a customer follow-up queue and simulated how temporary analyst cover affects backlog and on-time completion.</p>
-            <p class="card-context">Fictional customer files, workloads and review policies.</p>
-            <div class="tags" aria-label="KYC review and capacity planning tools"><span class="tag">MySQL</span><span class="tag">Python / Jupyter</span><span class="tag">Power BI / DAX</span></div>
-            <p class="card-report">2-page Power BI report</p>
-            <div class="case-links"><a class="button" href="projects/kyc-review-capacity-planning/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/kyc-review-capacity-planning/kyc-review-capacity-planning-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
-          </article>
-          <article class="completed-card" aria-labelledby="aml-title">
-            <span class="status">Report complete</span>
-            <h3 id="aml-title">AML Transaction Review</h3>
-            <p class="card-description">Compared three transaction rankings at a fixed analyst review capacity. A shallow decision tree caught 53 labelled transactions across two test days.</p>
-            <p class="card-context">IBM synthetic data with rankings frozen before test labels were accessed.</p>
-            <div class="tags" aria-label="AML transaction review tools"><span class="tag">MySQL</span><span class="tag">Python / Jupyter</span><span class="tag">Power BI</span></div>
-            <p class="card-report">1-page Power BI report</p>
-            <div class="case-links"><a class="button" href="projects/aml-transaction-review/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/aml-transaction-review/aml-transaction-review-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
-          </article>
-          <article class="completed-card" aria-labelledby="merchant-payments-title">
-            <span class="status">Report complete</span>
-            <h3 id="merchant-payments-title">Merchant Payments Reconciliation</h3>
-            <p class="card-description">Matched synthetic EUR payouts across merchant ledger, processor and bank records at two reporting cutoffs.</p>
-            <p class="card-context">One of three payouts had reached the bank on 30 June. All three matched by 2 July, with four ledger and processor exceptions still open.</p>
-            <div class="tags" aria-label="Merchant payments reconciliation tools"><span class="tag">MySQL</span><span class="tag">Python / Jupyter</span><span class="tag">dbt</span><span class="tag">Power BI</span></div>
-            <p class="card-report">2-page Power BI report</p>
-            <div class="case-links"><a class="button" href="projects/merchant-payments-reconciliation/index.html">Read case study <span aria-hidden="true">&#8594;</span></a><a class="text-link" href="projects/merchant-payments-reconciliation/merchant-payments-reconciliation-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
-          </article>
-          <article class="completed-card" aria-labelledby="qqq-title">
-            <span class="status">Report complete</span>
-            <h3 id="qqq-title">QQQ Options Backtest Reconciliation and Risk Analysis</h3>
-            <p class="card-description">Reconciled fees and net P&amp;L for 415 simulated QQQ trades and tied 830 orders to gross leg cash flows. An independent Python check reproduced the pilot’s monthly SQL results.</p>
-            <p class="card-context">The report covers a 100-month backtest. The pilot reconciliation logged seven open settlement exceptions.</p>
-            <div class="tags" aria-label="QQQ options reconciliation tools"><span class="tag">MySQL</span><span class="tag">Python</span><span class="tag">Power BI</span></div>
-            <p class="card-report">3-page Power BI report</p>
-            <div class="case-links"><a class="button" href="projects/qqq-options-backtest-reconciliation/index.html">Read case study <span aria-hidden="true">→</span></a><a class="text-link" href="projects/qqq-options-backtest-reconciliation/qqq-options-backtest-reconciliation-report.pdf" target="_blank" rel="noopener">View report PDF</a></div>
           </article>
         </div>
       </section>
